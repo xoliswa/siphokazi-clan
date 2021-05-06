@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css" integrity="sha512-17AHGe9uFHHt+QaRYieK7bTdMMHBMi8PeWG99Mf/xEcfBLDCn0Gze8Xcx1KoSZxDnv+KnCC+os/vuQ7jrF/nkw==" crossorigin="anonymous" />
+    <title>Siphokazi Clan</title>
+</head>
+<body>
+    <div class="container">
+        <h1 class="center-align">The Siphokazi Clan</h1>
+        <input type="text" id="filterClan" placeholder="Search member...">
+
+        <ul id="clanMembers" class="collection with-header">
+            <li class="collection-header">
+                <h5>B</h5>
+            </li>
+            <li class="collection-item">
+                <a href="#">Buhlebenkosi Maine</a>
+            </li>
+
+            <li class="collection-header">
+                <h5>L</h5>
+            </li>
+            <li class="collection-item">
+                <a href="#">Lungiswa Ngidi</a>
+            </li>
+            <li class="collection-item">
+                <a href="#">Lungile Mweshe</a>
+            </li>
+
+            <li class="collection-header">
+                <h5>M</h5>
+            </li>
+            <li class="collection-item">
+                <a href="#">Mzomusha Shandu</a>
+            </li>
+            <li class="collection-item">
+                <a href="#">Mbulelo Shandu</a>
+            </li>
+
+            <li class="collection-header">
+                <h5>N</h5>
+            </li>
+            <li class="collection-item">
+                <a href="#">Nqubeko Shandu</a>
+            </li>
+            <li class="collection-item">
+                <a href="#">Nkanyezi Shandu</a>
+            </li>
+
+
+            <li class="collection-header">
+                <h5>O</h5>
+            </li>
+            <li class="collection-item">
+                <a href="#">Okuhle Mnguni</a>
+            </li>
+
+            <li class="collection-header">
+                <h5>P</h5>
+            </li>
+            <li class="collection-item">
+                <a href="#">Phakamani Shandu</a>
+            </li>
+
+            <li class="collection-header">
+                <h5>S</h5>
+            </li>
+            <li class="collection-item">
+                <a href="#">Sifiso Shandu</a>
+            </li>
+            <li class="collection-item">
+                <a href="#">Sihle Shandu</a>
+            </li>
+            <li class="collection-item">
+                <a href="#">Sindiswa Shandu</a>
+            </li>
+            <li class="collection-item">
+                <a href="#">Sphelele Shandu</a>
+            </li>
+            <li class="collection-item">
+                <a href="#">Siphokazi Ngidi</a>
+            </li>
+            <li class="collection-item">
+                <a href="#">Sbonokuhle Ngidi</a>
+            </li>
+            <li class="collection-item">
+                <a href="#">Svuyisiwe Shandu</a>
+            </li>
+            <li class="collection-item">
+                <a href="#">Slice Ngidi</a>
+            </li>
+
+            <li class="collection-header">
+                <h5>T</h5>
+            </li>
+            <li class="collection-item">
+                <a href="#">Thembelihle Ngidi</a>
+            </li>
+
+            <li class="collection-header">
+                <h5>V</h5>
+            </li>
+            <li class="collection-item">
+                <a href="#">Vuyiswa Ngidi</a>
+            </li>
+
+            <li class="collection-header">
+                <h5>X</h5>
+            </li>
+            <li class="collection-item">
+                <a href="#">Xoliswa Shandu</a>
+            </li>
+
+
+            <li class="collection-header">
+                <h5>Z</h5>
+            </li>
+            <li class="collection-item">
+                <a href="#">Zoliswa Shandu</a>
+            </li>
+            <li class="collection-item">
+                <a href="#">Ziyanda Mnguni</a>
+            </li>
+        </ul>
+    </div>
+
+    <script>
+        //Get the filter input
+        let filterClan = document.getElementById('filterClan');
+
+        //Add event listener to input
+        filterClan.addEventListener('keyup', filterMembers);
+
+        function filterMembers(){
+            //Get value of input
+            let filterValue = document.getElementById('filterClan').value.toUpperCase();
+
+            //Get member names
+            let membersList = document.getElementById('clanMembers');
+
+            //Get items
+            let member = membersList.querySelectorAll('li.collection-item a');
+
+            // Loop through collection items
+            for(let i =0;i  < member.length;i++){
+                let a = member[i];
+                let collectionItem = a.parentElement;
+
+                // //if it matches
+                if(a.innerHTML.toUpperCase().indexOf(filterValue) > -1){
+                    collectionItem.style.display = '';
+                    collectionItem.previousSibling.previousSibling.style.display = '';
+                    member[i].style.display = '';
+                    
+                }else{  
+                    collectionItem.style.display = 'none';
+                    collectionItem.previousSibling.previousSibling.style.display = 'none';
+                    member[i].style.display = 'none';
+                }
+            }
+        }
+    </script>
+</body>
+</html>
